@@ -16,12 +16,30 @@ function getWeatherByCoords(lat, lon) {
 	    //ここでの data は res.json() によって変換された JavaScriptのオブジェクト
 	    const weather = data.weather[0].main;//data.weather[0].main:天気の種類を取り出す
 	    document.getElementById('weather').textContent = '天気: ' + weather;
-
+	    
+	    //setBackgroundByWeather(weather);
 	    //localStorage から以前保存した「元気さ」を読み出し,もしなければ50
 	    let energy = parseInt(localStorage.getItem('energy') || '50');//parseInt() は文字列を整数に変換する関数
-	    if (weather === 'Clear') energy += 5;
-	    if (weather === 'Rain') energy -= 3;
-	    if (weather === 'Clouds') energy += 1;
+	    if (weather === 'Clear') {
+		energy += 5;
+		
+	    }
+	    if (weather === 'Rain'){
+		energy -= 3;
+		const container = document.getElementById('container');
+		const img = document.createElement('img');
+		img.src = './assets/image/umbrella.png';
+		img.alt = '傘の画像';
+		
+		container.appendChild(img);
+
+		
+	    }
+		
+	    if (weather === 'Clouds'){
+		energy += 1;
+		
+	    }
 	    localStorage.setItem('energy', energy);//新しい[元気さ]を保存
 	    document.getElementById('energy').textContent = energy;//HTML内のIDが energy の要素のテキストを、最新の元気さの値に更新
         })
@@ -43,6 +61,7 @@ function getLocationName(lat, lon) {
 	    const locationName = `${components.state || ''} ${components.city || components.town || components.village || ''}`;
 	    
 	    document.getElementById('location').textContent = '現在地: ' + locationName;//表示を更新
+	    setBackgroundByLocation(locationName)
         })
         .catch(error => {//例外処理
 	    document.getElementById('location').textContent = '住所取得エラー';
@@ -72,5 +91,30 @@ function getLocationAndWeather() {
         document.getElementById('location').textContent = '位置情報非対応ブラウザです';
     }
 }
+
+function setBackgroundByWeather(weather) {
+  const body = document.getElementById('body');
+  if (weather === 'Clear') {
+    //body.style.backgroundImage = "url('./assets/image/sunny.png')";
+  } else if (weather === 'Rain') {
+    body.style.backgroundImage = "url('./assets/image/umbrella.png')";
+  } else if (weather === 'Clouds') {
+    //body.style.backgroundImage = "url('./assets/image/cloudy.png')"; // 画像があるなら
+  } else {
+    body.style.backgroundImage = "none"; // デフォルト背景に戻す
+  }
+}
+
+function setBackgroundByLocation(locationName) {
+    const body = document.body;
+    if (locationName.includes('福島県')) {
+	body.style.backgroundImage = "url('./assets/image/hukusima.jpg')";
+	body.style.backgroundSize = "cover";
+    }else {
+    body.style.backgroundImage = "none"; // デフォルト背景に戻す
+  }
+}
+
+
 
 getLocationAndWeather();//ページを開いたら即座に位置情報と天気情報を取得して処理を開始。
