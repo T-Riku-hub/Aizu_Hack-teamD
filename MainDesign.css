@@ -1,7 +1,7 @@
 body{
- background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+ background-repeat: no-repeat;/*背景画像が1回だけ表示されるようになる*/
+  background-position: center center;/*画像がページの真ん中に表示される。center center は 水平 中央 + 垂直 中央 の意味*/
+  background-size: cover;/*背景画像のサイズを要素の大きさに合わせて自動的に拡大・縮小する*/
 }
 
 h1 {

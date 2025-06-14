@@ -22,6 +22,7 @@ function getWeatherByCoords(lat, lon) {
 	    let energy = parseInt(localStorage.getItem('energy') || '50');//parseInt() は文字列を整数に変換する関数
 	    if (weather === 'Clear') {
 		energy += 5;
+		//この下に追加予定
 		
 	    }
 	    if (weather === 'Rain'){
@@ -32,14 +33,15 @@ function getWeatherByCoords(lat, lon) {
 		img.alt = '傘の画像';
 		
 		container.appendChild(img);
-
 		
 	    }
 		
 	    if (weather === 'Clouds'){
 		energy += 1;
+		//この下に追加予定
 		
 	    }
+	    
 	    localStorage.setItem('energy', energy);//新しい[元気さ]を保存
 	    document.getElementById('energy').textContent = energy;//HTML内のIDが energy の要素のテキストを、最新の元気さの値に更新
         })
@@ -92,8 +94,11 @@ function getLocationAndWeather() {
     }
 }
 
+
+
 function setBackgroundByWeather(weather) {
-  const body = document.getElementById('body');
+  //天気によって背景を変える
+  const body = document.body;
   if (weather === 'Clear') {
     //body.style.backgroundImage = "url('./assets/image/sunny.png')";
   } else if (weather === 'Rain') {
@@ -106,6 +111,7 @@ function setBackgroundByWeather(weather) {
 }
 
 function setBackgroundByLocation(locationName) {
+    //位置情報によって背景を変える
     const body = document.body;
     if (locationName.includes('福島県')) {
 	body.style.backgroundImage = "url('./assets/image/hukusima.jpg')";
