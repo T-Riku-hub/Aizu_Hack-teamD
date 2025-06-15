@@ -1,22 +1,16 @@
-# .github/workflows/deploy.yml
 
 name: Deploy to GitHub Pages
-
 on:
   push:
-    branches: ["main"] # 'main' ブランチにプッシュされたときに実行
-  workflow_dispatch: # 手動での実行を許可
-
-# 必要な権限を設定 (これがないとActionsがPagesにデプロイできません)
+    branches: ["main"]
+  workflow_dispatch:
 permissions:
   contents: read
   pages: write
   id-token: write
-
 jobs:
   build:
-    runs-on: ubuntu-latest # ジョブが実行されるOS環境
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,11 +18,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22 # あなたのNode.jsバージョンに合わせてください
-          cache: 'npm' # npmのキャッシュを有効にすると、次回以降の実行が速くなることがあります
+          node-version: 22
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
+
+      # ★ここから追加★ デバッグ用のステップ
+      - name: Debug environment variables
+        run: |
+          echo "VITE_WEATHER_API_KEY (should be masked): $VITE_WEATHER_API_KEY"
+          echo "VITE_GEO_API_KEY (should be masked): $VITE_GEO_API_KEY"
+        env:
+          VITE_WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          VITE_GEO_API_KEY: ${{ secrets.GEO_API_KEY }}
+      # ★ここまで追加★
 
       - name: Build project
         run: npm run build
@@ -36,17 +40,14 @@ jobs:
           VITE_WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
           VITE_GEO_API_KEY: ${{ secrets.GEO_API_KEY }}
 
-      # Pagesサービスにデプロイするために必要なセットアップステップ
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # ビルド成果物 (distディレクトリの内容) をアップロード
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: './dist' # ビルド出力ディレクトリ (Viteのデフォルトは'dist')
+          path: './dist'
 
-      # アップロードしたアーティファクトをGitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
