@@ -2,7 +2,7 @@
 このファイルは天気の情報で処理を切り替える機能を実現するコードです。
 現在はまだ天気の情報で処理を切り替える機能は未完成です。
 */
-import {weatherApiKey} from "./apiKeys.js";//Open Weather APIキー
+const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
 export function getWeatherByCoords(lat,lon){
 
