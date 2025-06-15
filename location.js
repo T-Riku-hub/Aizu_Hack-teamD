@@ -3,7 +3,7 @@
 表示方法を変更するかもしれない
 */
 
-import {geoApiKey} from "./apiKeys.js";//OpenCage のAPIキー
+const geoApiKey = import.meta.env.VITE_GEO_API_KEY;
 import { setBackgroundByLocation } from "./background.js";//背景を変更関数をimport
 
 
