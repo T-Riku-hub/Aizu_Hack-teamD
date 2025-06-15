@@ -1,50 +1,52 @@
+# .github/workflows/deploy.yml
+
 name: Deploy to GitHub Pages
 
-# ワークフローが実行されるトリガー
 on:
   push:
-    branches:
-      - main # 'main' ブランチにプッシュされたときに実行
+    branches: ["main"] # 'main' ブランチにプッシュされたときに実行
+  workflow_dispatch: # 手動での実行を許可
 
-  # 必要であれば、手動での実行を許可
-  workflow_dispatch:
+# 必要な権限を設定 (これがないとActionsがPagesにデプロイできません)
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-# ワークフロー内のジョブを定義
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest # ジョブが実行されるOS環境
 
-    # 各ステップの定義
     steps:
-      # 1. リポジトリのコードをチェックアウト
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Node.jsのセットアップ
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22  # 使用するNode.jsのバージョン 
+          node-version: 22 # あなたのNode.jsバージョンに合わせてください
+          cache: 'npm' # npmのキャッシュを有効にすると、次回以降の実行が速くなることがあります
 
-      # 3. 依存関係のインストール
       - name: Install dependencies
         run: npm install
 
-      # 4. プロジェクトのビルド (APIキーを環境変数として渡す)
       - name: Build project
-        run: npm run build # package.jsonで定義したビルドスクリプト
+        run: npm run build
         env:
-          # GitHub SecretsからAPIキーを環境変数として渡す
-          # ViteはVITE_プレフィックスの環境変数を自動でJSに埋め込む
           VITE_WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
           VITE_GEO_API_KEY: ${{ secrets.GEO_API_KEY }}
 
-      # 5. GitHub Pagesへのデプロイ
-      # peaceiris/actions-gh-pages を使用
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4 # 最新バージョンを使用
+      # Pagesサービスにデプロイするために必要なセットアップステップ
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # ビルド成果物 (distディレクトリの内容) をアップロード
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHubが自動で提供するトークン
-          publish_dir: ./dist # ビルド出力ディレクトリ (Viteのデフォルトは'dist')
-          
-          # cname: example.com # カスタムドメインを使用する場合 (コメントアウトされている場合は不要)
+          path: './dist' # ビルド出力ディレクトリ (Viteのデフォルトは'dist')
+
+      # アップロードしたアーティファクトをGitHub Pagesにデプロイ
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
