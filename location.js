@@ -3,11 +3,16 @@
 表示方法を変更するかもしれない
 */
 
-const geoApiKey = import.meta.env.VITE_GEO_API_KEY;
+import {geoApiKey} from "./apiKeys.js";//OpenCage のAPIキー
 import { setBackgroundByLocation } from "./background.js";//背景を変更関数をimport
 
 
 export function getLocationName(lat, lon) {
+    console.log("Geo API Key:", geoApiKey);
+if (!weatherApiKey || !geoApiKey) {
+    console.error("API keys are missing in development environment. Check .env file.");
+    // UIにエラーメッセージを表示するなどの処理
+}
     //緯度経度を OpenCage API に渡して、日本語の住所を取得。
     //lat, lon は緯度経度
     //OpenCage の API を使って、現在の住所（都道府県＋市町村）を取得。
