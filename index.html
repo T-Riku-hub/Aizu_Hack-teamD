@@ -3,16 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>位置情報で天気育成</title>
-     <link rel="stylesheet" href="MainDesign.css">
+    <link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="MainDesign.css">
   </head>
   <body id='body'>
-    <h1>育成キャラ</h1>
-   
-    <div id="location">現在地: 取得中…</div>
-     <div id="container"></div>
-    <div id="weather">天気: 取得中…</div>
-    <div>元気さ: <span id="energy">50</span></div>
+    <header>
+      <nav>
+        <li><a href="https://github.com/T-Riku-hub/Aizu_Hack-teamD">GitHub上のソースコード</a> </li>
+      </nav>
+      <h1>現在の育成キャラ</h1>
+      
+    </header>
+    
+    
+    <aside>
+    <section id="location">
+        <h3>現在地</h3>
+        <p id = "location-name">取得中…</p> 
+      </section>
 
+      <div id="container"></div>
+
+    <section id="weather">
+    <h3>天気</h3>
+    <p id="current-weather">取得中…</p> 
+    </section>
+
+  <div>元気さ: <span id="energy">50</span></div>
+
+    </aside>
+    
+    <footer>
+      現座の時刻
+    </footer>
     
     <script type="module" src="./main.js"></script>
 

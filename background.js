@@ -27,7 +27,7 @@ export function setBackgroundByLocation(locationName){
     if(locationName.includes("福島県")){//"福島"だと検知されないので注意
         body.style.backgroundImage = "url('./assets/image/hukusima.jpg')";
     	body.style.backgroundSize = "cover";
-    }else{
+    }  else{
         body.style.backgroundImage = "none"; // デフォルト背景に戻す
     }
 }
