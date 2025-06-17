@@ -1,5 +1,6 @@
 import { getLocationName } from "./location.js";
 import { getWeatherByCoords } from "./weather.js";
+import { getCurrentTime } from "./currentTime.js";
 
 function getLocationAndWeather() {
     /*
@@ -38,5 +39,6 @@ function getLocationAndWeather() {
 }
 
 getLocationAndWeather();
+getCurrentTime();
 
 
