@@ -1,5 +1,6 @@
 import { getLocationName } from "./location.js";
 import { getWeatherByCoords } from "./weather.js";
+import { getCurrentTime } from "./currentTime.js";
 
 function getLocationAndWeather() {
     /*
@@ -22,7 +23,7 @@ function getLocationAndWeather() {
 		//error
 	    (error) => {
 		//navigator.geolocation.getCurrentPositionで位置情報が取得できなかったときにここに飛ぶ
-		document.getElementById('location').textContent = '位置情報の取得に失敗しました';
+		document.getElementById('location-name').textContent = '位置情報の取得に失敗しました';
 		console.error(error);
 		/*
 		エラー番号
@@ -33,10 +34,11 @@ function getLocationAndWeather() {
 	    }
         );
     } else {//navigator.geolocation が 使えるブラウザではない時の処理
-        document.getElementById('location').textContent = '位置情報非対応ブラウザです';
+        document.getElementById('location-name').textContent = '位置情報非対応ブラウザです';
     }
 }
 
 getLocationAndWeather();
+getCurrentTime();
 
 

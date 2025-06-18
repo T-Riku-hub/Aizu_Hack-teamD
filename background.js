@@ -27,11 +27,12 @@ export function setBackgroundByLocation(locationName){
     if(locationName.includes("福島県")){//"福島"だと検知されないので注意
         body.style.backgroundImage = "url('./assets/image/hukusima.jpg')";
     	body.style.backgroundSize = "cover";
+
 	}else if(locationName.includes("北海道")){ // 以下のelse if文はくにおが追加　2025年6月18日
 		body.style.backgroundImage = "url('./assets/image/hokkaido_tokeidai_sunny.jpg')";
     	body.style.backgroundSize = "cover";
 	}else if(locationName.includes("青森県") || locationName.includes("岩手県") || locationName.includes("宮城県") || locationName.includes("秋田県") || locationName.includes("山形県")){ // 福島県を除く東北5県は、画像が一緒
-		body.style.backgroundImage = "url('./assets/image/'tohoku_nebuta_night.jpg)";
+		body.style.backgroundImage = "url('./assets/image/'tohoku_nebuta_night.jpg')";
     	body.style.backgroundSize = "cover";
 	}else if(locationName.includes("茨城県") || locationName.includes("栃木県") || locationName.includes("群馬県") || locationName.includes("埼玉県") || locationName.includes("東京都") || locationName.includes("千葉県") || locationName.includes("神奈川県")){ //　東京都を含む関東7都県は、画像がいっしょ 
 		body.style.backgroundImage = "url('./assets/image/tokyo_skytree_sunny.jpg')";
@@ -54,7 +55,7 @@ export function setBackgroundByLocation(locationName){
 	}else if(locationName.includes("沖縄県")){ 
 		body.style.backgroundImage = "url('./assets/image/okinawa_beach_sunny.jpg')";
     	body.style.backgroundSize = "cover";
-    }else{
+    } else{
         body.style.backgroundImage = "none"; // デフォルト背景に戻す
     }
 }

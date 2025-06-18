@@ -19,7 +19,7 @@ export function getWeatherByCoords(lat,lon){
         .then(data => {
 	    //ここでの data は res.json() によって変換された JavaScriptのオブジェクト
 	    const weather = data.weather[0].main;//data.weather[0].main:天気の種類を取り出す
-	    document.getElementById('weather').textContent = '天気: ' + weather;
+	    document.getElementById('current-weather').textContent = weather;
 	    
 	    //setBackgroundByWeather(weather);
 	    //localStorage から以前保存した「元気さ」を読み出し,もしなければ50
@@ -52,7 +52,7 @@ export function getWeatherByCoords(lat,lon){
 
         
         .catch(error => {//例外処理
-	    document.getElementById('weather').textContent = '天気取得エラー';
+	    document.getElementById('current-weather').textContent = '天気取得エラー';
 	    console.error(error);
         });
 }
