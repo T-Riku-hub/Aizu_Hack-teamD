@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>位置情報で天気育成</title>
-    <link rel="stylesheet" href="reset.css">
+    
 <link rel="stylesheet" href="MainDesign.css">
   </head>
   <body id='body'>
@@ -16,30 +16,32 @@
     </header>
     
     
-    <aside>
     <section id="location">
-        <h3>現在地</h3>
-        <p id = "location-name">取得中…</p> 
+        <h2>現在地</h2>
+        <h3 id = "location-name">取得中…</h3> 
       </section>
 
-      <div id="container"></div>
+      <div id="weatherIcon"></div>
 
     <section id="weather">
-    <h3>天気</h3>
-    <p id="current-weather">取得中…</p> 
+    <h2>天気</h2>
+    <h3 id="current-weather">取得中…</h3> 
     </section>
 
-    <section>
-      <h3>現在時刻</h3>
-      <p><span id="time"></span></p>
+    <section id="timer">
+      <h2>現在時刻</h2>
+      <h3><span id="time"></span></h3>
     </section>
-  <div>元気さ: <span id="energy">50</span></div>
-
   
-    </aside>
-    
-    
-    
+    <div id="list">
+    <div class="state">元気さ: <span id="energy">50</span></div>
+    <div class="state">なつき度:50</div>
+    <div class="state">Lv:50</div>
+    <div class="state">ストレス値:50</div>
+    <div class="state">空腹度:50</div>
+    <div class="state">HP:50</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="./main.js"></script>
 
     

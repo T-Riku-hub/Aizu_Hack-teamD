@@ -8,7 +8,7 @@ function getLocationAndWeather() {
 	navigator.geolocation:ブラウザに今の自分の緯度や経度を教えてもらう
 	navigator.geolocation.getCurrentPositio:現在の位置を1回だけ取得する命令
 	*/
-    
+    const body = document.body;
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
 		//succes
@@ -17,14 +17,19 @@ function getLocationAndWeather() {
 		const lat = position.coords.latitude;
 		const lon = position.coords.longitude;
 		//取得成功後、その緯度経度を getLocationName と getWeatherByCoords に渡す。
-		getLocationName(lat, lon);//位置情報
 		getWeatherByCoords(lat, lon);//天気
+		getLocationName(lat, lon);//位置情報
+		
 	    },
 		//error
 	    (error) => {
 		//navigator.geolocation.getCurrentPositionで位置情報が取得できなかったときにここに飛ぶ
 		document.getElementById('location-name').textContent = '位置情報の取得に失敗しました';
 		console.error(error);
+		
+		body.style.backgroundImage = "url('./assets/image/default_Background.jpg')"; // デフォルト背景に戻す
+		body.style.backgroundSize = "cover";
+    
 		/*
 		エラー番号
 		1 : ユーザーが位置情報の取得を拒否した
@@ -35,10 +40,13 @@ function getLocationAndWeather() {
         );
     } else {//navigator.geolocation が 使えるブラウザではない時の処理
         document.getElementById('location-name').textContent = '位置情報非対応ブラウザです';
+		body.style.backgroundImage = "url('./assets/image/default_Background.jpg')"; // デフォルト背景に戻す
+		body.style.backgroundSize = "cover";
     }
 }
 
 getLocationAndWeather();
 getCurrentTime();
+setInterval(getCurrentTime, 60000);
 
 

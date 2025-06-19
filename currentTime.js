@@ -12,7 +12,7 @@ export function getCurrentTime(){
     const clock = [year,month,date,hour,min];
     const nowTime = `${clock[0]}年 ${clock[1]}月 ${clock[2]}日 (${day}) ${clock[3]}:${String(clock[4]).padStart(2,'0')}`;
     document.getElementById("time").textContent = nowTime;
-    refresh();
+    
 }
 
 function passDay(dayIndex){
@@ -20,3 +20,4 @@ function passDay(dayIndex){
     const day = `${weekdays[dayIndex]}`;
     return day;
 }
+
