@@ -1,10 +1,10 @@
 body{
- background-repeat: no-repeat;/*背景画像が1回だけ表示されるようになる*/
+  background-repeat: no-repeat;/*背景画像が1回だけ表示されるようになる*/
   background-position: center center;/*画像がページの真ん中に表示される。center center は 水平 中央 + 垂直 中央 の意味*/
   background-size: cover;/*背景画像のサイズを要素の大きさに合わせて自動的に拡大・縮小する*/
-
+  
   /*以下のコードを変更予定*/
-  background-color : wheat;
+  background-color : lightslategray;
 }
 
 
@@ -15,12 +15,37 @@ h1 {
   color: #008000;
 }
 #location{
-  position: fixed;/*position: fixed:ページをスクロールしても、要素がその場にとどまり続ける*/
-  bottom: 1%;
-  left: 1%;
-  background-color: white;/*わかりやすく白にしてある*/
+  position: absolute;/*absoluteにすることで位置を動かすことができる*/
+  bottom: 0.1%;
+  left: 0.5%;
+  width: 200px;/*横に広くする*/
+
+  background-color: rgba(255, 255, 255, 0.36);/*透過率36%*/
+  backdrop-filter: blur(4px);/*背景をぼかす*/
+  border: 3px solid #000;
+
+  background-repeat: no-repeat;/*背景画像が1回だけ表示されるようになる*/
+  background-image: url("./assets/image/chikyuugi.png");/*わかりやすく白にしてある*/
+  background-size: cover;/*背景画像のサイズを要素の大きさに合わせて自動的に拡大・縮小する*/
+  background-color: lightblue;
+
   padding: 10px;/*padding:要素の中の「内容」と「枠（境界）」の間の内側の余白のこと*/
-  color: #008000;
-  line-height: 2.5;
+  color: yellow;/*文字の色*/
+  
+  line-height: 2.7;
+  border-radius: 10px;  /* 枠を丸くする*/
+  
 }
 
+#list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  left: 77%;
+  background-color: rgba(255, 255, 255, 0.36);/*透過率36%*/
+  backdrop-filter: blur(4px);/*背景をぼかす*/
+  border: 3px solid #000;
+}

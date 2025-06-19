@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <title>位置情報で天気育成</title>
     
-<link rel="stylesheet" href="MainDesign.css">
+<link rel="stylesheet" href="bodyStyle.css">
+<link rel="stylesheet" href="locationStyle.css">
+<link rel="stylesheet" href="weatherIcon.css">
+<link rel="stylesheet" href="weatherStyle.css">
+<link rel="stylesheet" href="timerStyle.css">
   </head>
   <body id='body'>
     <header>
@@ -18,19 +22,21 @@
     
     <section id="location">
         <h2>現在地</h2>
-        <h3 id = "location-name">取得中…</h3> 
+        <h3 id = "location-name">福島県 会津若松市</h3> 
       </section>
 
-      <div id="weatherIcon"></div>
+    <div id="weatherIcon">
+      <img src="../assets/image/sunny.png" alt="晴れの画像">
+    </div>
 
     <section id="weather">
-    <h2>天気</h2>
-    <h3 id="current-weather">取得中…</h3> 
+    <h2>いまの天気</h2>
+    <h3>晴れ 気温:31℃</h3> 
     </section>
 
     <section id="timer">
-      <h2>現在時刻</h2>
-      <h3><span id="time"></span></h3>
+      <h2>現在の時刻</h2>
+      <h3>2025年 6月 19日 (木) 11:43</h3>
     </section>
   
     <div id="list">
@@ -41,8 +47,7 @@
     <div class="state">空腹度:50</div>
     <div class="state">HP:50</div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src="./main.js"></script>
+    
 
     
   </body>

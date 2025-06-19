@@ -1,0 +1,7 @@
+#timer{
+    position: absolute;/*absoluteにすることで位置を動かすことができる*/
+    background-image: url("../assets/image/clock.png");
+    /*これ以降を編集してください.*/
+    left: 20%;/*ここは変更して大丈夫です*/
+
+}

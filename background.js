@@ -56,6 +56,7 @@ export function setBackgroundByLocation(locationName){
 		body.style.backgroundImage = "url('./assets/image/okinawa_beach_sunny.jpg')";
     	body.style.backgroundSize = "cover";
     } else{
-        body.style.backgroundImage = "none"; // デフォルト背景に戻す
+        body.style.backgroundImage = "url('./assets/image/default_Background.jpg')"; // デフォルト背景に戻す
+		body.style.backgroundSize = "cover";
     }
 }

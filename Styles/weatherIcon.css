@@ -1,0 +1,6 @@
+#weatherIcon{
+    position: absolute;/*absoluteにすることで位置を動かすことができる*/
+    background-color: white;/*わかりやすく白にしてある*/
+    /*これ以降を編集してください.background-colorのところは変えて大丈夫です*/
+    top: 40%;
+}
