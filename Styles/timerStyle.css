@@ -2,6 +2,27 @@
     position: absolute;/*absoluteにすることで位置を動かすことができる*/
     background-image: url("../assets/image/clock.png");
     /*これ以降を編集してください.*/
-    left: 20%;/*ここは変更して大丈夫です*/
+    right: 0.5%;/*ここは変更して大丈夫です*/
+    bottom: 0.1%;
+
+    width: 250px;/*横の幅*/
+    height: 200px;/*縦の幅*/
+  
+    background-color: rgba(255, 255, 255, 0.36);/*透過率36%*/
+    backdrop-filter: blur(4px);/*背景をぼかす*/
+    border: 3px solid #000;/*枠線*/
+  
+    background-repeat: no-repeat;/*背景画像が1回だけ表示されるようになる*/
+    background-size: cover;/*背景画像のサイズを要素の大きさに合わせて自動的に拡大・縮小する*/
+    background-color: lightblue;
+  
+    padding: 10px;/*padding:要素の中の「内容」と「枠（境界）」の間の内側の余白のこと*/
+    color: #ff006f;/*文字の色*/
+    
+
+    line-height: 4;
+    
+    border-radius: 10px;  /* 枠を丸くする*/    
+
 
 }
