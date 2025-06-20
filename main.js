@@ -51,9 +51,7 @@ function getLocationAndWeather() {
 
 getLocationAndWeather();
 getCurrentTime();
-setInterval(getCurrentTime, 60000);//1分おきに呼び出す
 glowCharacter();
-setTimeout(glowCharacter, 60000);;//1分おきに呼び出す
 eat();
 reset();
 setInterval(() => {

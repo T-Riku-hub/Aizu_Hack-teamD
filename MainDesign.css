@@ -51,8 +51,7 @@ object-fit: contain;
   left: 0.5%;
   width: 200px;/*横に広くする*/
 
-  background-color: rgba(255, 255, 255, 0.36);/*透過率36%*/
-  backdrop-filter: blur(4px);/*背景をぼかす*/
+  
   border: 3px solid #000;
 
   background-repeat: no-repeat;/*背景画像が1回だけ表示されるようになる*/
@@ -93,6 +92,11 @@ object-fit: contain;
   font-size: 1em;
   box-shadow: 0 5px 0 #993333;
   font-weight: bold;
+  position: absolute;
+  left: 5.5%;
+  top: 10%;
+  height: 150px;
+  width: 300px;
 }
 
 #eat-button{
@@ -105,6 +109,8 @@ object-fit: contain;
   box-shadow: 0 5px 0 #b8860b;
   font-weight: bold;
   position: absolute;
-  top: 55%;
-  left: 80%;
+  top: 40%;
+  left: 5.5%;
+  height: 150px;
+  width: 300px;
 }

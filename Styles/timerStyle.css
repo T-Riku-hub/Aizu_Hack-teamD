@@ -8,8 +8,7 @@
     width: 250px;/*横の幅*/
     height: 200px;/*縦の幅*/
   
-    background-color: rgba(255, 255, 255, 0.36);/*透過率36%*/
-    backdrop-filter: blur(4px);/*背景をぼかす*/
+    
     border: 3px solid #000;/*枠線*/
   
     background-repeat: no-repeat;/*背景画像が1回だけ表示されるようになる*/

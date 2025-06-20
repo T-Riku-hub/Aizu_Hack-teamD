@@ -39,7 +39,7 @@ export function eat(){
         let energy = parseInt(localStorage.getItem('energy') || '50');
 
         love+=1
-        Hunger_level+=10;
+        Hunger_level+=20;
         energy+=2;
 
         //元気さの範囲は1~100(1<=energy<=100)
