@@ -1,6 +1,22 @@
-#weather{
-    position: absolute;/*absoluteにすることで位置を動かすことができる*/
-    background-color: white;/*わかりやすく白にしてある*/
-    /*これ以降を編集してください.background-colorのところは変えて大丈夫です*/
-    
+#weather {
+    position: absolute;              /* ← 画面に固定（スクロールしてもついてくる） */
+    bottom: 0px;                 /* ← 画面の下からの距離（調整可） */
+    left: 50%;                    /* ← 横中央寄せの起点 */
+    transform: translateX(-50%);  /* ← 実際に中央揃え */
+
+    width: 200px;
+    height: 223px;                 /* ← 高さはコンテンツに合わせて */
+
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
+    border: 2px solid #000;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: black;
 }
