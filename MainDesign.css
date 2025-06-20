@@ -10,10 +10,41 @@ body{
 
 /*以下は変更予定のコード*/
 /*#location #location-name #weather #current-weatherの中身を追加予定*/
-h1 {
-  font-size: 18px;
-  color: #008000;
+#charcther-line{
+  font-size: 20px;
+  border-bottom: solid 2px black;
+  font-style: oblique;
+  text-align: center;
 }
+
+.character-frame{
+  position: absolute;/*absoluteにすることで位置を動かすことができる*/
+  left: 30%;
+  top: 0.5%;
+  width: 550px;
+  height: 500px;
+  
+  background-color: white;
+  background-color: rgba(132, 171, 160,0.5);/*透過率50%*/
+  backdrop-filter: blur(4px);/*背景をぼかす*/
+  border: 3px solid #000;
+  
+  background-position: center center;
+  background-size: cover;
+  border-radius: 20px;  /* 枠を丸くする*/
+}
+
+#char-img{
+position: absolute;
+left: 4.2%;
+top: 10%;
+max-width: 90%;
+max-height: 80%;
+object-fit: contain;
+
+}
+
+
 #location{
   position: absolute;/*absoluteにすることで位置を動かすことができる*/
   bottom: 0.1%;
@@ -30,7 +61,7 @@ h1 {
   background-color: lightblue;
 
   padding: 10px;/*padding:要素の中の「内容」と「枠（境界）」の間の内側の余白のこと*/
-  color: yellow;/*文字の色*/
+  color: #ff006f;/*文字の色*/
   
   line-height: 2.7;
   border-radius: 10px;  /* 枠を丸くする*/
@@ -44,8 +75,36 @@ h1 {
   gap: 10px;
   position: absolute;
   top: 0;
-  left: 77%;
-  background-color: rgba(255, 255, 255, 0.36);/*透過率36%*/
+  left: 72%;
+  width: 390px;
+  background-color: rgba(255, 155, 61, 0.7);/*透過率36%*/
   backdrop-filter: blur(4px);/*背景をぼかす*/
   border: 3px solid #000;
+  
+  font-weight: bold;
+}
+
+#resetButton{
+  background-color: #CC3333;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 1em;
+  box-shadow: 0 5px 0 #993333;
+  font-weight: bold;
+}
+
+#eat-button{
+  background-color: #ffd700;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px 30px;
+  text-decoration: none;
+  font-size: 1em;
+  box-shadow: 0 5px 0 #b8860b;
+  font-weight: bold;
+  position: absolute;
+  top: 55%;
+  left: 80%;
 }

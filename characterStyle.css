@@ -1,0 +1,26 @@
+.character-frame{
+    position: absolute;/*absoluteにすることで位置を動かすことができる*/
+    left: 30%;
+    top: 0.5%;
+    width: 550px;
+    height: 500px;
+    
+    background-color: white;
+    background-color: rgba(132, 171, 160,0.5);/*透過率50%*/
+    backdrop-filter: blur(4px);/*背景をぼかす*/
+    border: 3px solid #000;
+    
+    background-position: center center;
+    background-size: cover;
+    border-radius: 20px;  /* 枠を丸くする*/
+}
+
+#char-img{
+position: absolute;
+left: 4.2%;
+top: 10%;
+max-width: 90%;
+max-height: 80%;
+object-fit: contain;
+
+}
