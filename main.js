@@ -1,6 +1,8 @@
 import { getLocationName } from "./location.js";
-import { getWeatherByCoords } from "./weather.js";
+import { getWeather} from "./weather.js";
 import { getCurrentTime } from "./currentTime.js";
+import { glowCharacter } from "./glowChar.js";
+import { eat, reset } from "./buttonFunctions.js";
 
 function getLocationAndWeather() {
     /*
@@ -17,8 +19,9 @@ function getLocationAndWeather() {
 		const lat = position.coords.latitude;
 		const lon = position.coords.longitude;
 		//取得成功後、その緯度経度を getLocationName と getWeatherByCoords に渡す。
-		getWeatherByCoords(lat, lon);//天気
 		getLocationName(lat, lon);//位置情報
+		getWeather(lat, lon);//天気
+		
 		
 	    },
 		//error
@@ -45,8 +48,15 @@ function getLocationAndWeather() {
     }
 }
 
+
 getLocationAndWeather();
 getCurrentTime();
-setInterval(getCurrentTime, 60000);
-
+setInterval(getCurrentTime, 60000);//1分おきに呼び出す
+glowCharacter();
+setTimeout(glowCharacter, 60000);;//1分おきに呼び出す
+eat();
+reset();
+setInterval(() => {
+	location.reload();
+}, 60000);//1分おきに画面をリロード
 

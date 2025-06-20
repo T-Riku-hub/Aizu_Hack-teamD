@@ -1,3 +1,5 @@
+
+
 export function getCurrentTime(){
     const now = new Date();
     const year = now.getFullYear();
@@ -11,6 +13,12 @@ export function getCurrentTime(){
 
     const clock = [year,month,date,hour,min];
     const nowTime = `${clock[0]}年 ${clock[1]}月 ${clock[2]}日 (${day}) ${clock[3]}:${String(clock[4]).padStart(2,'0')}`;
+
+    let Hunger_level = parseInt(localStorage.getItem('Hunger-level')||50);
+    Hunger_level-=5;
+    if(Hunger_level<1)Hunger_level=1;
+    localStorage.setItem('Hunger-level',Hunger_level);
+    document.getElementById('Hunger-level').textContent=Hunger_level;
     document.getElementById("time").textContent = nowTime;
     
 }

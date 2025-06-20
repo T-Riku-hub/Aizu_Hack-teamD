@@ -12,10 +12,7 @@ export function getLocationName(lat, lon) {
     //緯度経度を OpenCage API に渡して、日本語の住所を取得。
     //lat, lon は緯度経度
     //OpenCage の API を使って、現在の住所（都道府県＋市町村）を取得。
-    //res.json() はレスポンスの「本文（ボディ）」を JSON形式のデータ として読み取るメソッド
-    //res.json() はレスポンスの中身を文字列として受け取り、それをJavaScriptのオブジェクトに変換
-    //res.json() 自体はPromiseを返すので、次の .then() で受け取れる形になっている
-
+    
     const url='https://api.opencagedata.com/geocode/v1/json';
     const appID = "10dc3853be25422cac6a1ff19341a600";
 
@@ -31,19 +28,28 @@ export function getLocationName(lat, lon) {
         }
     })
     .done(function(data){
-        console.log(data);
+        
+
         const components = data.results[0].components;
+
+
+        console.log(data);
         console.log("都道府県:", components.state);
         console.log("市区町村:", components.city || components.town || components.village);
+        console.log("地理的特性:", components.natural_feature || components.water || components.beach || components.park || "特になし");
+
         
-        //都道府県 (state) と市町村 (city, town, village) を連結
         //どれかが無くてもエラーにならないように || '' で補完。
         const locationName = `${components.state || ''} ${components.city || components.town || components.village || ''}`;
         //都道府県 (state) 、市町村 (city, town, village)
+        const feature=`${components.natural_feature || components.water || components.beach || components.park || '特になし'}`;
+        //natural_feature : "Mount Fuji"（山など） water:湖や川の名前（例：猪苗代湖） beach:海岸名  park:公園名
 
         //この下を変更予定
-        document.getElementById('location-name').textContent = locationName;//表示を更新
-        setBackgroundByLocation(locationName)//背景を変更する処理
+
+        document.getElementById('location-name').textContent = locationName;//現在地を更新
+        document.getElementById('want-to-go').textContent=feature;//キャラクターが行きたいところを更新
+        setBackgroundByLocation(locationName)//背景を更新
     })
     .fail(function(){
         document.getElementById('location-name').textContent = '住所取得エラー';
