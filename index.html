@@ -5,17 +5,28 @@
     <title>位置情報で天気育成</title>
     
 <link rel="stylesheet" href="MainDesign.css">
+
   </head>
   <body id='body'>
     <header>
       <nav>
         <li><a href="https://github.com/T-Riku-hub/Aizu_Hack-teamD">GitHub上のソースコード</a> </li>
       </nav>
-      <h1>現在の育成キャラ</h1>
+      
       
     </header>
     
-    
+    <button id="resetButton">reset</button>
+    <button id="eat-button">ごはんを食べさせる</button>
+    <main>
+      <section class="character-frame">
+        <h1 id="charcther-line">現在の育成キャラ</h1>
+        
+        <img id="char-img" src="assets/image/charcther/phase01.png" alt="育成キャラクターの画像">
+        
+      </section>
+    </main>
+
     <section id="location">
         <h2>現在地</h2>
         <h3 id = "location-name">取得中…</h3> 
@@ -34,12 +45,27 @@
     </section>
   
     <div id="list">
-    <div class="state">元気さ: <span id="energy">50</span></div>
-    <div class="state">なつき度:50</div>
-    <div class="state">Lv:50</div>
-    <div class="state">ストレス値:50</div>
-    <div class="state">空腹度:50</div>
-    <div class="state">HP:50</div>
+    <div class="state">
+      元気さ: <span id="energy">50</span>
+      <p id="look-like">快適そうだ</p>
+    </div>
+    <div class="state">なつき度: <span id="love">1</span></div>
+    <div class="state">
+      Lv:<span id="charLv"> 0</span>
+      <p id="lv-comment"> </p>
+      <p id="max-Lv"> </p>
+    </div>
+    <div class="state">行きたい場所
+      <p id="want-to-go">特になし</p>
+    </div>
+    <div class="state">
+      空腹度: <span id="Hunger-level">50</span>
+      <p id="hunger-comment"> </p>
+    </div>
+    <div class="state">
+      体感温度 
+      <p id="feelTemp">不明</p>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="./main.js"></script>
