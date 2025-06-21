@@ -14,7 +14,7 @@ export function getLocationName(lat, lon) {
     //OpenCage の API を使って、現在の住所（都道府県＋市町村）を取得。
     
     const url='https://api.opencagedata.com/geocode/v1/json';
-    const appID = "10dc3853be25422cac6a1ff19341a600";
+    const appID = geoApiKey;
 
     //$.ajax()を使うのでhtml側で<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>を先に読み込ませる
     //$.ajax():APIリクエストの際に幾つかの情報をJSのプログラムからAPIを送信する必要がある。送信するにはパラメータにdataプロパティを追加
@@ -32,12 +32,12 @@ export function getLocationName(lat, lon) {
 
         const components = data.results[0].components;
 
-
+        /*デバッグ用
         console.log(data);
         console.log("都道府県:", components.state);
         console.log("市区町村:", components.city || components.town || components.village);
         console.log("地理的特性:", components.natural_feature || components.water || components.beach || components.park || "特になし");
-
+        */
         
         //どれかが無くてもエラーにならないように || '' で補完。
         const locationName = `${components.state || ''} ${components.city || components.town || components.village || ''}`;
