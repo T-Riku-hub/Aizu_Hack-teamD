@@ -1,4 +1,4 @@
-
+import { hungerComment } from "./chengeState.js";
 
 export function getCurrentTime(){
     const now = new Date();
@@ -17,6 +17,7 @@ export function getCurrentTime(){
     let Hunger_level = parseInt(localStorage.getItem('Hunger-level')||50);
     Hunger_level-=5;
     if(Hunger_level<1)Hunger_level=1;
+    hungerComment(Hunger_level);
     localStorage.setItem('Hunger-level',Hunger_level);
     document.getElementById('Hunger-level').textContent=Hunger_level;
     document.getElementById("time").textContent = nowTime;

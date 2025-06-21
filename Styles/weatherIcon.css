@@ -1,7 +1,7 @@
 #weatherIcon{
     position: absolute;/*absoluteにすることで位置を動かすことができる*/
     bottom: 0.1%;
-    left: calc(0.5% + 3px + 10px + 250px + 10px + 3px + 0.5%);
+    left: 30%;
     width: 250px;/*横の幅*/
     height: 200px;/*縦の幅*/
   
@@ -22,6 +22,5 @@
     display: flex; /* Flexbox を使用 */
     justify-content: center; /* 水平方向の中央揃え */
     align-items: center;     /* 垂直方向の中央揃え */
-    padding: 10px; 
-
+    
 }

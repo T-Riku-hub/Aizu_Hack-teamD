@@ -1,7 +1,7 @@
 #weather {
     position: absolute;              /* ← 画面に固定（スクロールしてもついてくる） */
     bottom: 0px;                 /* ← 画面の下からの距離（調整可） */
-    left: 50%;                    /* ← 横中央寄せの起点 */
+    left: 60%;                    /* ← 横中央寄せの起点 */
     transform: translateX(-50%);  /* ← 実際に中央揃え */
 
     width: 200px;
