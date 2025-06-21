@@ -51,7 +51,7 @@ export function getLocationName(lat, lon) {
         document.getElementById('want-to-go').textContent=feature;//キャラクターが行きたいところを更新
         setBackgroundByLocation(locationName)//背景を更新
     })
-    .fail(function(){
+    .fail(function(error){
         document.getElementById('location-name').textContent = '住所取得エラー';
         console.error(error);
         console.log('$.ajax faild');
