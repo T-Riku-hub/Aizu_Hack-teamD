@@ -1,5 +1,4 @@
-
-
+import { hungerComment } from "./chengeState.js";
 export function reset(){
     const button = document.getElementById('resetButton');
     button.onclick = function() {
@@ -49,7 +48,7 @@ export function eat(){
         if(love>100)love=100;
         if(Hunger_level>100)Hunger_level=100;
         else{
-        
+        hungerComment(Hunger_level);
         localStorage.setItem('love',love);
         localStorage.setItem('Hunger-level',Hunger_level);
         localStorage.setItem('energy',energy);

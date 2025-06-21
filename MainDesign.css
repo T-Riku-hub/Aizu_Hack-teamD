@@ -10,7 +10,7 @@ body{
 
 /*以下は変更予定のコード*/
 /*#location #location-name #weather #current-weatherの中身を追加予定*/
-#charcther-line{
+#characther-line{
   font-size: 20px;
   border-bottom: solid 2px black;
   font-style: oblique;
@@ -49,8 +49,8 @@ object-fit: contain;
   position: absolute;/*absoluteにすることで位置を動かすことができる*/
   bottom: 0.1%;
   left: 0.5%;
-  width: 200px;/*横に広くする*/
-
+  width: 250px;/*横に広くする*/
+  height: 200px;
   
   border: 3px solid #000;
 

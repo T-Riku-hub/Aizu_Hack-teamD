@@ -37,3 +37,15 @@ export function chengeEnergyByWeather(temp){
     document.getElementById('feelTemp').textContent=temp+"℃";
 }
 
+export function hungerComment(HungerLevel){
+
+    if(HungerLevel>=1 && HungerLevel<=20){
+        document.getElementById('hunger-comment').textContent="空腹そうだ";
+    }else if(HungerLevel>20 && HungerLevel<=40){
+        document.getElementById('hunger-comment').textContent="少し空腹そうだ";
+    }else if(HungerLevel>40 && HungerLevel<=80){
+        document.getElementById('hunger-comment').textContent="";
+    }else{
+        document.getElementById('hunger-comment').textContent="満腹そうだ";
+    }
+}
