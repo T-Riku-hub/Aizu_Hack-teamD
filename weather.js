@@ -35,7 +35,7 @@ export function getWeather(lat,lon){
         chengeEnergyByWeather(feelTemp);
         chengeWetherIcon(weather,temp);
     })
-	.fail(function(){
+	.fail(function(error){
 		document.getElementById('current-weather').textContent = '天気取得エラー';
         console.error(error);
 		console.log('$.ajax faild');
